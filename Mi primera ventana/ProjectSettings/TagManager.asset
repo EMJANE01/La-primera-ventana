@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: fondo
+    uniqueID: 2592032891
+    locked: 0
+  - name: play
+    uniqueID: 1696551705
+    locked: 0
