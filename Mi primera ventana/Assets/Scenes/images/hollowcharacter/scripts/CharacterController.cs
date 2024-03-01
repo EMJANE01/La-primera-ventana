@@ -9,6 +9,7 @@ public LayerMask capaSuelo;
 public float saltosMaximos;
     public float velocidad;
     public float fuerzaSalto;
+   
     
     private Rigidbody2D rigidBody;
     private BoxCollider2D boxCollider;
