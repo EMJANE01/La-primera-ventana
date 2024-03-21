@@ -7,25 +7,26 @@ public class Disparojugador : MonoBehaviour
     [SerializeField] private Transform controladorDisparo;
     [SerializeField] private GameObject bala;
 
-   
     private void Update()
-{
-    if (Input.GetButtonDown("Fire1"))
     {
-        DispararBala();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            DispararBala();
+        }
     }
-}
 
- private void DispararBala()
-{
-    // Instanciar la bala con la posición y la rotación predeterminadas
-    GameObject nuevaBala = Instantiate(bala, controladorDisparo.position, controladorDisparo.rotation);
+    private void DispararBala()
+    {
+        // Determinar la dirección del disparo basándose en el movimiento del jugador
+        float direccion = Input.GetAxisRaw("Horizontal");
 
-    // Obtener el componente Rigidbody2D de la nueva bala
-    Rigidbody2D rbBala = nuevaBala.GetComponent<Rigidbody2D>();
+        // Instanciar la bala con la posición y la rotación predeterminadas
+        GameObject nuevaBala = Instantiate(bala, controladorDisparo.position, Quaternion.identity);
 
-    // Establecer una velocidad en la dirección horizontal
-    // Aquí, la velocidad se establece en 5 unidades por segundo en la dirección hacia la derecha
-    rbBala.velocity = transform.right * 30f; // Puedes ajustar el valor 5f según la velocidad deseada
-}
+        // Obtener el componente Rigidbody2D de la nueva bala
+        Rigidbody2D rbBala = nuevaBala.GetComponent<Rigidbody2D>();
+
+        // Establecer una velocidad en la dirección obtenida
+        rbBala.velocity = new Vector2(direccion * 30f, rbBala.velocity.y); // Velocidad horizontal ajustada, la velocidad vertical se mantiene igual
+    }
 }
