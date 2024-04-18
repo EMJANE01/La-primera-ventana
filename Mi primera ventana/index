@@ -1,0 +1,12 @@
+{
+  "_id": ObjectId,
+  "cliente": ObjectId, // Referencia al cliente que realizó el pedido
+  "productos": [
+    {
+      "producto_id": ObjectId,
+      "cantidad": Number
+    }
+  ],
+  "fecha_pedido": Date,
+  "estado": String // Estado del pedido (pendiente, completado, cancelado, etc.)
+}
